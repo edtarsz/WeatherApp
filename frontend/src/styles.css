@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    /* Colors */
+    --primary-color: #141B41;
+    --primary-color-hover: #293175;
+
+    --input-background-color: #1F244B;
+
+    --secondary-color: #626581;
+    --tertiary-color: #D28600;
+
+    --card-background-color: #272B52;
+    --small-card-background-color: #4C4D74;
+    --search-bar-background-color: #13142F;
+
+    --edit-border-blue: #5088D0;
+    --edit-background-blue: #263B5E;
+
+    --delete-border-red: #F87171;
+    --delete-background-red: #4A2F3B;
+
+    /* Fonts */
+    --ubuntu-bold: 'UbuntuBold';
+    --ubuntu-regular: 'UbuntuRegular';
+}
+
+body {
+    font-family: var(--ubuntu-bold);
+}
+
+@font-face {
+    font-family: 'UbuntuBold';
+    src: url('assets/fonts/Ubuntu-Bold.woff2') format('woff2');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'UbuntuRegular';
+    src: url('assets/fonts/Ubuntu-Regular.woff2') format('woff2');
+    font-weight: normal;
+}
