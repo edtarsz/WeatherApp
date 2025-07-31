@@ -12,9 +12,12 @@
     --primary-color-hover: #293175;
 
     --input-background-color: #1F244B;
+    --input-border-color: #9193A7;
 
     --secondary-color: #626581;
     --tertiary-color: #D28600;
+
+    --hover-yellow-color: #855503;
 
     --card-background-color: #272B52;
     --small-card-background-color: #4C4D74;
