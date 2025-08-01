@@ -3,10 +3,10 @@
     <div class="w-[20vw] min-w-[300px] flex items-center gap-5">
         <span routerLink="index" class="cursor-pointer">WeatherApp</span>
         <div
-            class="w-full flex gap-2 bg-[var(--search-bar-background-color)] rounded-3xl px-4 py-1 items-center border border-[rgba(255,255,255,0.2)]">
+            class="w-full flex gap-2 bg-[var(--search-bar-background-color)] rounded-3xl px-4 items-center border border-[rgba(255,255,255,0.2)] cursor-pointer">
             <img src="/assets/svg/search-svg.svg" alt="Search Icon" class="w-5 h-5">
-            <input type="search" name="search" id="search" placeholder="Buscar ciudad..."
-                class="focus:outline-none text-[0.7rem] bg-transparent w-full placeholder:text-[rgba(255,255,255,0.5)] [&::-webkit-search-cancel-button]:hidden">
+            <input disabled type="search" name="search" id="search" placeholder="Buscar ciudad..."
+                class="cursor-pointer focus:outline-none text-[0.7rem] bg-transparent w-full h-full py-3 placeholder:text-[rgba(255,255,255,0.5)] [&::-webkit-search-cancel-button]:hidden">
         </div>
     </div>
 
