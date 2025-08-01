@@ -1,10 +1,10 @@
 <div class="bg-[url('assets/svg/main-bg.svg')] bg-cover bg-bottom h-screen w-screen">
     <header class="w-screen h-[10vh] flex justify-between items-center px-[10vw] text-white">
-        <span>
+        <span class="cursor-pointer">
             <!-- <img src="svg/logo.svg" alt=""> -->
             WeatherApp</span>
         <div class="flex items-center gap-8">
-            <button class="cursor-pointer">Log In</button>
+            <button routerLink="/account/login" class="cursor-pointer">Log In</button>
             <button routerLink="/account/register"
                 class="bg-[var(--primary-color)] py-2 px-7 rounded-3xl shadow-[0_5px_8px_0_rgba(0,0,0,0.5)] hover:bg-[var(--primary-color-hover)] cursor-pointer duration-200 ease-in-out">
                 Sign Up
@@ -22,4 +22,3 @@
         </div>
     </main>
 </div>
-<!-- <div class="bg-[url('/assets/fondo.jpg')] bg-cover bg-center h-64 w-full"></div> -->

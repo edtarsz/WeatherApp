@@ -17,11 +17,16 @@
     --secondary-color: #626581;
     --tertiary-color: #D28600;
 
+    --border-pop-up-color: #878B9A;
+
     --hover-yellow-color: #855503;
 
     --card-background-color: #272B52;
     --small-card-background-color: #4C4D74;
     --search-bar-background-color: #13142F;
+
+    --dark-blue: #101836;
+    --dark-red: #B11932;
 
     --edit-border-blue: #5088D0;
     --edit-background-blue: #263B5E;

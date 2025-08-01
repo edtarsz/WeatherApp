@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div class="flex flex-1 flex-col justify-center items-start gap-5">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Create an account</h1>
+    <p class="font-['UbuntuRegular']">
+        Already have an account?
+        <a href="/account/login" class="text-[var(--tertiary-color)] underline">Log in</a>
+    </p>
+    <form action="" class="flex flex-col gap-5 w-full">
+        <div class="flex gap-5">
+            <input type="text" placeholder="First Name"
+                class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+            <input type="text" placeholder="Last Name"
+                class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+        </div>
+        <input type="email" placeholder="Email"
+            class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+        <input type="password" placeholder="Enter your password"
+            class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+        <button
+            class="bg-[var(--tertiary-color)] py-4 px-7 rounded-lg hover:bg-[var(--hover-yellow-color)] cursor-pointer duration-200 ease-in-out">
+            Create account
+        </button>
+    </form>
+</div>

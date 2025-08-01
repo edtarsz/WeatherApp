@@ -1,5 +1,5 @@
 <div class="bg-[url('assets/svg/register-bg-svg.svg')] bg-cover bg-bottom h-screen w-screen text-white">
-    <main class="flex w-full m-auto justify-center items-center gap-[5vw] h-[100vh] px-[10vw]">
+    <main class="flex w-full justify-center items-center gap-[5vw] h-[100vh] px-[10vw]">
         <div class="w-full flex flex-col justify-center">
             <header class="h-[10vh] fixed flex justify-center items-center top-0 text-white">
                 <span>
@@ -8,31 +8,7 @@
                     </a>
                 </span>
             </header>
-            <!-- Esto va directo al app register -->
-            <div class="flex flex-1 flex-col justify-center items-start gap-5">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Create an account</h1>
-                <p class="font-['UbuntuRegular']">
-                    Already have an account?
-                    <a href="/login" class="text-[var(--tertiary-color)] underline">Log in</a>
-                </p>
-                <form action="" class="flex flex-col gap-5 w-full">
-                    <div class="flex gap-5">
-                        <input type="text" placeholder="First Name"
-                            class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                        <input type="text" placeholder="Last Name"
-                            class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                    </div>
-                    <input type="email" placeholder="Email"
-                        class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                    <input type="password" placeholder="Enter your password"
-                        class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                    <button
-                        class="bg-[var(--tertiary-color)] py-4 px-7 rounded-lg hover:bg-[var(--hover-yellow-color)] cursor-pointer duration-200 ease-in-out">
-                        Create account
-                    </button>
-                </form>
-            </div>
-            <!-- <app-register></app-register> -->
+            <router-outlet></router-outlet>
         </div>
         <div class="w-full h-[95vh] flex flex-col justify-end items-center gap-5 
             border border-[rgba(255,255,255,0.3)] 
@@ -47,6 +23,4 @@
             </div>
         </div>
     </main>
-    <!-- <app-login></app-login> -->
-    <router-outlet></router-outlet>
 </div>
