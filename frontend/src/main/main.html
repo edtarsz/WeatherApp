@@ -1,23 +1,79 @@
 <app-header></app-header>
 <div class="bg-[url('assets/svg/content-bg-svg.svg')] bg-cover bg-bottom h-[90vh] w-screen">
-    <main class="w-screen h-full grid grid-cols-[3fr_1fr] m-auto px-[10vw]">
-        <div class="bg-amber-300">
-            asdasd
+    <main class="w-screen h-full grid grid-cols-[2fr_1fr] m-auto px-[5vw] lg:px-[5vw] xl:px-[10vw] pt-10 gap-5">
+        <div class="flex flex-col gap-5">
+            <div
+                class="flex flex-col gap-3 justify-center bg-[url('assets/svg/purple-blur-bg-svg.svg')] bg-cover py-8 px-[4vw] md:px-[4vw] lg:px-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                <header class="flex justify-between pb-5">
+                    <div class="flex items-center gap-2">
+                        <img src="/assets/svg/pin-white-svg.svg" alt="">
+                        <h3>Sonora, México</h3>
+                    </div>
+                    <h4 class="text-[rgba(255,255,255,0.5)]">Actualizado hace 5min</h4>
+                </header>
+
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-col gap-3">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">43°</h1>
+                        <div>
+                            <h2 class="text-base sm:text-lg md:text-xl lg:text-2xl">Parcialmente Nublado</h2>
+                            <h3 class="text-sm text-[rgba(255,255,255,0.5)]">Sensación térmica 41°</h3>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="/assets/svg/cloud-svg.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-[var(--card-background-color)] px-8 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                <h4>Pronostico por horas</h4>
+            </div>
+            <div
+                class="bg-[var(--card-background-color)] px-8 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                <h4>Pronostico de 7 días</h4>
+            </div>
         </div>
-        <div class="bg-amber-600">
-            asdasd
+        <div class="flex flex-col gap-5">
+            <div
+                class="bg-[var(--card-background-color)] px-8 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                <h4>Condiciones actuales</h4>
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-5 pt-5">
+                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/humidity-svg.svg" alt="">
+                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Humedad</h5>
+                        </div>
+                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                    </div>
+                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/wind-svg.svg" alt="">
+                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Viento</h5>
+                        </div>
+                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                    </div>
+                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/pressure-svg.svg" alt="">
+                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Presión</h5>
+                        </div>
+                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                    </div>
+                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/visibility-svg.svg" alt="">
+                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Visibilidad</h5>
+                        </div>
+                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-[var(--card-background-color)] px-10 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                <h4>Mis ubicaciones</h4>
+            </div>
         </div>
     </main>
 </div>
-
-<!-- <header
-    class="w-screen h-[10vh] flex justify-between items-center px-[10vw] text-white bg-[var(--card-background-color)]">
-    <span class="cursor-pointer">
-        WeatherApp</span>
-    <div class="flex items-center gap-8">
-        <button routerLink="/account/register"
-            class="bg-[var(--primary-color)] py-2 px-7 rounded-3xl shadow-[0_5px_8px_0_rgba(0,0,0,0.5)] hover:bg-[var(--primary-color-hover)] cursor-pointer duration-200 ease-in-out">
-            Sign Up
-        </button>
-    </div>
-</header> -->
