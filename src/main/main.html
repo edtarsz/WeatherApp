@@ -31,7 +31,7 @@
         <div class="flex flex-col gap-5">
             <div class="flex h-auto flex-col gap-3 justify-center bg-[url('/images/purple-blur-bg-svg.svg')] bg-cover px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]"
                 loading="eager">
-                <header class="flex justify-between pb-5 items-center">
+                <header class="flex justify-between sm:pb-5 items-center">
                     <div class="flex items-center gap-2">
                         <img src="/assets/svg/pin-white-svg.svg" alt="">
                         <h3 class="text-[12px] sm:text-base lg:text-lg">Sonora, México</h3>
@@ -59,189 +59,130 @@
             </div>
             <div
                 class="w-full h-auto bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
-                <h4>Pronostico por horas</h4>
-                <ul class="flex gap-10 pl-5 pt-5 w-auto h-auto">
+                <h4 class="text-[12px] sm:text-base lg:text-lg">Pronostico por horas</h4>
+                <ul class="flex gap-10 sm:pl-5 pt-3 sm:pt-5 w-auto h-auto">
                     <!-- <ul class="flex gap-10 pl-5 py-5 w-auto h-auto overflow-x-scroll"> -->
                     <!-- TO DO, CUANDO HAY MÁS DE 3 LIST ITEMS EL RESPONSIVE NO FUNCIONA CORRECTAMENTE -->
                     <li>
                         <div>
                             <ul class="text-center flex flex-col gap-2">
-                                <li>Ahora</li>
+                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
                                 <li class="flex justify-center">
                                     <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
                                 </li>
-                                <li>22°</li>
-                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
+                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
+                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
                             </ul>
                         </div>
                     </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li>14:00</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/cloud-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li>22°</li>
-                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li>14:00</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/cloud-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li>22°</li>
-                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li>14:00</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/cloud-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li>22°</li>
-                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li>14:00</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li>22°</li>
-                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li>14:00</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li>22°</li>
-                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li> -->
                 </ul>
             </div>
             <div
                 class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
-                <h4>Pronostico de 7 días</h4>
-                <div class="flex pt-5 pl-5 w-full h-auto items-center justify-between">
+                <h4 class="text-[12px] sm:text-base lg:text-lg">Pronostico de 7 días</h4>
+                <div
+                    class="grid grid-cols-[5fr_4fr] gap-5 sm:gap-0 sm:flex  pt-3 sm:pt-5 sm:pl-5 w-full h-auto items-center justify-between">
                     <div class="grid grid-cols-2 w-auto">
-                        <ul class="flex flex-col gap-5">
-                            <li>Hoy</li>
-                            <li>Mañana</li>
-                            <li>Miércoles</li>
-                            <li>Jueves</li>
-                            <li>Viernes</li>
-                            <li>Sábado</li>
-                            <li>Domingo</li>
+                        <ul class="flex flex-col gap-3 sm:gap-5 justify-around">
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Hoy</li>
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Mañana</li>
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Miércoles</li>
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Jueves</li>
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Viernes</li>
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Sábado</li>
+                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Domingo</li>
                         </ul>
-                        <ul class="flex flex-col gap-5">
-                            <li class="flex gap-2">
+                        <ul class="flex flex-col gap-3 sm:gap-5">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Soleado</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Soleado</p>
                             </li>
-                            <li class="flex gap-2">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Lluvia</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
                             </li>
-                            <li class="flex gap-2">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Lluvia</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
                             </li>
-                            <li class="flex gap-2">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Lluvia</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
                             </li>
-                            <li class="flex gap-2">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Lluvia</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
                             </li>
-                            <li class="flex gap-2">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Lluvia</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
                             </li>
-                            <li class="flex gap-2">
+                            <li class="flex gap-2 items-center">
                                 <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p>Lluvia</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="grid grid-cols-2 w-auto gap-5">
-                        <ul class="flex flex-col gap-5">
+                    <div class="grid grid-cols-2 w-auto gap-0 sm:gap-5">
+                        <ul class="flex flex-col gap-3 sm:gap-5 w-full">
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p>20°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
                             </li>
                         </ul>
-                        <ul class="flex flex-col gap-5">
+                        <ul class="flex flex-col gap-3 sm:gap-5 w-full">
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
 
                             <li class="flex items-center gap-2">
                                 <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p>15°</p>
+                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
                             </li>
                         </ul>
                     </div>
@@ -251,46 +192,46 @@
         <div class="flex flex-col gap-5">
             <div
                 class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
-                <h4>Condiciones actuales</h4>
-                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-3 pt-5 h-auto w-full">
+                <h4 class="text-[12px] sm:text-base lg:text-lg">Condiciones actuales</h4>
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-3 pt-3 sm:pt-5 h-auto w-full">
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/humidity-svg.svg" alt="">
-                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Humedad</h5>
+                            <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Humedad</h5>
                         </div>
-                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/wind-svg.svg" alt="">
-                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Viento</h5>
+                            <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Viento</h5>
                         </div>
-                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/pressure-svg.svg" alt="">
-                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Presión</h5>
+                            <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Presión</h5>
                         </div>
-                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/visibility-svg.svg" alt="">
-                            <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Visibilidad</h5>
+                            <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Visibilidad</h5>
                         </div>
-                        <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
                 </div>
             </div>
             <div
                 class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
-                <h4>Mis ubicaciones</h4>
-                <div class="flex pt-5 w-full h-auto items-center justify-between flex-col gap-3">
+                <h4 class="text-[12px] sm:text-base lg:text-lg">Mis ubicaciones</h4>
+                <div class="flex pt-3 sm:pt-5 w-full h-auto items-center justify-between flex-col gap-3">
                     <div
                         class="flex justify-between gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5 w-full hover:scale-105 duration-100 ease-in-out cursor-pointer">
                         <div class="flex items-center gap-2">
