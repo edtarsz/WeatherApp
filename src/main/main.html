@@ -16,12 +16,12 @@
                 <p class="flex text-[0.7rem] w-full h-full text-[rgba(255,255,255,0.5)]">Buscar ciudad...</p>
             </div>
             <div
-                class="text-white flex justify-center items-center gap-1 bg-[var(--small-card-background-color)] px-1 py-1 rounded-lg">
+                class="text-white flex justify-center items-center gap-1 bg-[var(--small-card-background-color)] px-1 h-full rounded-lg">
                 <span
                     class="w-12 text-center cursor-pointer px-3 py-1 hover:bg-white hover:text-black duration-200 ease-in-out rounded-md">
                     ° C
                 </span>
-                <div class="w-0.5 h-7 bg-[rgba(255,255,255,0.5)]"></div>
+                <div class="w-0.5 h-6 bg-[rgba(255,255,255,0.5)]"></div>
                 <span
                     class="w-12 text-center cursor-pointer px-2 py-1 hover:bg-white hover:text-black duration-200 ease-in-out rounded-md">
                     ° F
@@ -29,41 +29,70 @@
             </div>
         </div>
         <div class="flex flex-col gap-5">
-            <div class="flex flex-col gap-3 justify-center bg-[url('/images/purple-blur-bg-svg.svg')] bg-cover py-8 px-[4vw] md:px-[4vw] lg:px-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]"
+            <div class="flex h-auto flex-col gap-3 justify-center bg-[url('/images/purple-blur-bg-svg.svg')] bg-cover px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]"
                 loading="eager">
-                <header class="flex justify-between pb-5">
+                <header class="flex justify-between pb-5 items-center">
                     <div class="flex items-center gap-2">
                         <img src="/assets/svg/pin-white-svg.svg" alt="">
-                        <h3>Sonora, México</h3>
+                        <h3 class="text-[12px] sm:text-base lg:text-lg">Sonora, México</h3>
                     </div>
-                    <h4 class="text-[rgba(255,255,255,0.5)]">Actualizado hace 5min</h4>
+                    <h4 class="text-[rgba(255,255,255,0.5)] text-[10px] md:text-sm">Actualizado
+                        hace
+                        5min
+                    </h4>
                 </header>
 
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col gap-3">
                         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">43°</h1>
                         <div>
-                            <h2 class="text-base sm:text-lg md:text-xl lg:text-2xl">Parcialmente Nublado</h2>
+                            <h2 class="text-sm sm:text-base md:text-lg lg:text-xl">Parcialmente Nublado</h2>
                             <h3 class="text-sm text-[rgba(255,255,255,0.5)]">Sensación térmica 41°</h3>
                         </div>
                     </div>
 
                     <div>
-                        <img src="/assets/svg/cloud-svg.svg" alt="">
+                        <img src="/assets/svg/cloud-svg.svg" alt=""
+                            class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
                     </div>
                 </div>
             </div>
             <div
-                class="w-full h-full bg-[var(--card-background-color)] py-8 px-[4vw] md:px-[4vw] lg:px-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                class="w-full h-auto bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
                 <h4>Pronostico por horas</h4>
-                <ul class="flex gap-10 pl-5 py-5">
-                    <!-- For horas en el dia -->
+                <ul class="flex gap-10 pl-5 pt-5 w-auto h-auto">
+                    <!-- <ul class="flex gap-10 pl-5 py-5 w-auto h-auto overflow-x-scroll"> -->
+                    <!-- TO DO, CUANDO HAY MÁS DE 3 LIST ITEMS EL RESPONSIVE NO FUNCIONA CORRECTAMENTE -->
                     <li>
                         <div>
                             <ul class="text-center flex flex-col gap-2">
                                 <li>Ahora</li>
                                 <li class="flex justify-center">
                                     <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
+                                </li>
+                                <li>22°</li>
+                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <ul class="text-center flex flex-col gap-2">
+                                <li>14:00</li>
+                                <li class="flex justify-center">
+                                    <img src="/assets/svg/cloud-blue-svg.svg" alt="" class="w-5 h-5">
+                                </li>
+                                <li>22°</li>
+                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <div>
+                            <ul class="text-center flex flex-col gap-2">
+                                <li>14:00</li>
+                                <li class="flex justify-center">
+                                    <img src="/assets/svg/cloud-blue-svg.svg" alt="" class="w-5 h-5">
                                 </li>
                                 <li>22°</li>
                                 <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
@@ -94,12 +123,24 @@
                             </ul>
                         </div>
                     </li>
+                    <li>
+                        <div>
+                            <ul class="text-center flex flex-col gap-2">
+                                <li>14:00</li>
+                                <li class="flex justify-center">
+                                    <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
+                                </li>
+                                <li>22°</li>
+                                <li class="text-sm text-[var(--edit-border-blue)]">10%</li>
+                            </ul>
+                        </div>
+                    </li> -->
                 </ul>
             </div>
             <div
-                class="bg-[var(--card-background-color)] px-8 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
                 <h4>Pronostico de 7 días</h4>
-                <div class="flex py-5 pl-5 w-full h-full items-center justify-between">
+                <div class="flex pt-5 pl-5 w-full h-auto items-center justify-between">
                     <div class="grid grid-cols-2 w-auto">
                         <ul class="flex flex-col gap-5">
                             <li>Hoy</li>
@@ -209,31 +250,35 @@
         </div>
         <div class="flex flex-col gap-5">
             <div
-                class="bg-[var(--card-background-color)] px-8 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
                 <h4>Condiciones actuales</h4>
-                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-5 pt-5">
-                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-3 pt-5 h-auto w-full">
+                    <div
+                        class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/humidity-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Humedad</h5>
                         </div>
                         <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
-                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                    <div
+                        class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/wind-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Viento</h5>
                         </div>
                         <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
-                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                    <div
+                        class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/pressure-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Presión</h5>
                         </div>
                         <h2 class="text-xl sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
                     </div>
-                    <div class="flex flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
+                    <div
+                        class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
                         <div class="flex items-center gap-2">
                             <img src="/assets/svg/visibility-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.3)] text-sm">Visibilidad</h5>
@@ -243,8 +288,43 @@
                 </div>
             </div>
             <div
-                class="bg-[var(--card-background-color)] px-10 py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
+                class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
                 <h4>Mis ubicaciones</h4>
+                <div class="flex pt-5 w-full h-auto items-center justify-between flex-col gap-3">
+                    <div
+                        class="flex justify-between gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5 w-full hover:scale-105 duration-100 ease-in-out cursor-pointer">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/sun-blue-svg.svg" alt="">
+                            <h5 class="text-sm">Barcelona</h5>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-sm md:text-md">19°</h2>
+                            <img src="/assets/svg/cross-svg.svg" alt="" class="hidden lg:flex">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5 w-full hover:scale-105 duration-100 ease-in-out cursor-pointer">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/sun-blue-svg.svg" alt="">
+                            <h5 class="text-sm">Barcelona</h5>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-sm md:text-md">19°</h2>
+                            <img src="/assets/svg/cross-svg.svg" alt="" class="hidden lg:flex">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5 w-full hover:scale-105 duration-100 ease-in-out cursor-pointer">
+                        <div class="flex items-center gap-2">
+                            <img src="/assets/svg/sun-blue-svg.svg" alt="">
+                            <h5 class="text-sm">Barcelona</h5>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-sm md:text-md">19°</h2>
+                            <img src="/assets/svg/cross-svg.svg" alt="" class="hidden lg:flex">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
