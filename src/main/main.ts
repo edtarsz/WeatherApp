@@ -11,13 +11,13 @@ import { InterfaceService } from '../app/core/services/interface.service';
 export class Main {
   private interfaceService = inject(InterfaceService);
   public showSearchBar = this.interfaceService.showSearchBar;
-  public showMenu = this.interfaceService.showMenu;
+  public showUserMenu = this.interfaceService.showUserMenu;
 
   public onSearchBarToggle(): void {
     this.interfaceService.toggleSearchBar();
   }
 
-  public onMenuToggle(): void {
-    this.interfaceService.toggleMenu();
+  public onUserMenuToggle(): void {
+    this.interfaceService.toggleUserMenu();
   }
 }

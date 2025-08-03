@@ -1,3 +1,19 @@
+@if (showMenuIndex()) {
+<div class="fixed w-screen h-screen top-0 bg-[rgba(0,0,0,0.9)] z-2">
+    <div class="w-full h-auto flex absolute top-[10vh] to-[rgba(0,0,0,1)] pt-5 pb-[50vh]"
+        (click)="onMenuIndexToggle()">
+        <ul class="w-full flex flex-col items-end gap-5 px-[10vw]" (click)=" $event.stopPropagation()">
+            <li class="flex items-center gap-2 cursor-pointer text-sm">
+                <a class="text-white" routerLink="/account/login">Log In</a>
+            </li>
+            <li class="flex items-center gap-2 cursor-pointer text-sm">
+                <a class="text-white" routerLink="/account/register">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</div>
+}
+
 <div class="bg-[url('/images/main-bg-svg.svg')] bg-cover bg-bottom h-screen w-screen" loading="eager">
     <header class="fixed w-screen h-[10vh] flex justify-between items-center px-[10vw] text-white">
         <span class="cursor-pointer">
@@ -10,7 +26,7 @@
                 Sign Up
             </button>
         </div>
-        <div class="items-center justify-center bg-[var(--primary-color)] px-2 py-2 rounded-md flex sm:flex md:hidden">
+        <div (click)="onMenuIndexToggle()" class="items-center justify-center bg-[var(--primary-color)] px-2 py-2 rounded-md flex sm:flex md:hidden">
             <img src="/assets/svg/menu-svg.svg" alt="Menu Icon" class="w-6 h-6 cursor-pointer">
         </div>
     </header>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { InterfaceService } from '../app/core/services/interface.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,5 +9,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './landing.page.css'
 })
 export class LandingPage {
+  private interfaceService = inject(InterfaceService);
+  public showMenuIndex = this.interfaceService.showMenuIndex;
 
+  public onMenuIndexToggle(): void {
+    this.interfaceService.toggleMenuIndex();
+  }
 }

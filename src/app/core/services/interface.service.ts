@@ -7,8 +7,11 @@ export class InterfaceService {
     private _showSearchBar = signal(false);
     public showSearchBar = this._showSearchBar.asReadonly();
 
-    private _showMenu = signal(false);
-    public showMenu = this._showMenu.asReadonly();
+    private _showUserMenu = signal(false);
+    public showUserMenu = this._showUserMenu.asReadonly();
+
+    private _showMenuIndex = signal(false);
+    public showMenuIndex = this._showMenuIndex.asReadonly();
 
     constructor() { }
 
@@ -16,7 +19,11 @@ export class InterfaceService {
         this._showSearchBar.update((value: boolean) => !value);
     }
 
-    public toggleMenu(): void {
-        this._showMenu.update((value: boolean) => !value);
+    public toggleUserMenu(): void {
+        this._showUserMenu.update((value: boolean) => !value);
+    }
+
+    public toggleMenuIndex(): void {
+        this._showMenuIndex.update((value: boolean) => !value);
     }
 }
