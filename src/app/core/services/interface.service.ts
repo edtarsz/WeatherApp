@@ -13,6 +13,9 @@ export class InterfaceService {
     private _showMenuIndex = signal(false);
     public showMenuIndex = this._showMenuIndex.asReadonly();
 
+    private selectedTemperatureUnit = signal<'C' | 'F'>('C');
+    public getSelectedTemperatureUnit = this.selectedTemperatureUnit.asReadonly();
+
     constructor() { }
 
     public toggleSearchBar(): void {
@@ -25,5 +28,9 @@ export class InterfaceService {
 
     public toggleMenuIndex(): void {
         this._showMenuIndex.update((value: boolean) => !value);
+    }
+
+    public setSelectedTemperatureUnit(unit: 'C' | 'F'): void {
+        this.selectedTemperatureUnit.set(unit);
     }
 }

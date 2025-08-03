@@ -15,12 +15,14 @@
     <div class="flex items-center gap-8 w-full justify-end">
         <div
             class="hidden sm:flex justify-center items-center gap-1 bg-[var(--small-card-background-color)] px-1 py-1 rounded-lg">
-            <span
+            <span (click)="onTemperatureUnitChange('C')" [class.bg-white]="selectedTemperatureUnit() === 'C'"
+                [class.text-black]="selectedTemperatureUnit() === 'C'"
                 class="w-12 text-center cursor-pointer px-3 py-1 hover:bg-white hover:text-black duration-200 ease-in-out rounded-md">
                 ° C
             </span>
             <div class="w-0.5 h-7 bg-[rgba(255,255,255,0.5)]"></div>
-            <span
+            <span (click)="onTemperatureUnitChange('F')" [class.bg-white]="selectedTemperatureUnit() === 'F'"
+                [class.text-black]="selectedTemperatureUnit() === 'F'"
                 class="w-12 text-center cursor-pointer px-2 py-1 hover:bg-white hover:text-black duration-200 ease-in-out rounded-md">
                 ° F
             </span>
