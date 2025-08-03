@@ -17,6 +17,24 @@
 </div>
 }
 
+@if (showMenu()) {
+<div class="fixed w-screen h-screen top-0 bg-[rgba(0,0,0,0.7)] z-2">
+    <div class="w-full h-auto flex absolute top-[10vh] bg-gradient-to-t from-transparent to-[rgba(0,0,0,1)] pt-5 pb-[50vh]"
+        (click)="onMenuToggle()">
+        <ul class="w-full flex flex-col items-end gap-3 px-[10vw]" (click)=" $event.stopPropagation()">
+            <li class="flex items-center gap-2 cursor-pointer text-sm">
+                <img src="assets/svg/settings-svg.svg" alt="">
+                <a class="text-white" href="#">Settings</a>
+            </li>
+            <li class="flex items-center gap-2 cursor-pointer text-sm">
+                <img src="assets/svg/sign-out-svg.svg" alt="">
+                <a class="text-[var(--dark-red)]" href="#">Sign out</a>
+            </li>
+        </ul>
+    </div>
+</div>
+}
+
 <!-- <div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh]"> -->
 <!-- Overflow hidden para bug en scroll eje x tras crear el card de pronostico por 7 días -->
 <!-- Error no encontrado -->
