@@ -1,25 +1,31 @@
 <app-header></app-header>
 <!-- Imágen fixed en el fondo -->
 <div class="fixed bg-[url('/images/content-bg-svg.svg')] bg-cover w-screen h-screen top-0 z-0" loading="eager"></div>
-<!-- <div
+
+@if (showSearchBar()) {
+<div (click)="onSearchBarToggle()"
     class="fixed w-screen h-screen top-0 bg-[rgba(0,0,0,0.7)] z-2 backdrop-blur-md justify-center items-center flex flex-col">
-    <div
-        class="h-[50vh] w-[50vw] flex flex-col justify-center items-center gap-5 bg-[var(--card-background-color)] rounded-2xl border border-[rgba(255,255,255,0.2)]">
+    <div class="h-[50vh] w-[50vw] flex flex-col justify-center items-center gap-5 bg-[var(--card-background-color)] rounded-2xl border border-[rgba(255,255,255,0.2)]"
+        (click)="$event.stopPropagation()">
         <div class="h-full w-full p-20">
-            <p class="text-white">asdsa</p>
+            <div class="w-full justify-between flex">
+                <p class="text-white">Buscar ubicación</p>
+                <img (click)="onSearchBarToggle()" src="assets/svg/cross-svg.svg" alt="Cerrar" class="cursor-pointer">
+            </div>
         </div>
     </div>
-</div> -->
+</div>
+}
 
 <!-- <div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh]"> -->
-
 <!-- Overflow hidden para bug en scroll eje x tras crear el card de pronostico por 7 días -->
 <!-- Error no encontrado -->
-<div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh] overflow-x-hidden">
+<div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh] overflow-x-hidden"
+    [class.overflow-y-hidden]="showSearchBar()">
     <main
         class="w-screen h-auto grid sm:grid-cols-[2fr_1fr] grid-cols-1 m-auto px-[5vw] lg:px-[5vw] xl:px-[10vw] py-10 gap-5">
         <div class="w-full flex items-center gap-5 justify-between sm:hidden">
-            <div
+            <div (click)="onSearchBarToggle()"
                 class="py-2 w-full flex gap-2 bg-[var(--search-bar-background-color)] rounded-3xl px-4 items-center border border-[rgba(255,255,255,0.2)] cursor-pointer">
                 <img src="/assets/svg/search-svg.svg" alt="Search Icon" class="w-5 h-5">
                 <p class="flex text-[0.7rem] w-full h-full text-[rgba(255,255,255,0.5)]">Buscar ciudad...</p>
