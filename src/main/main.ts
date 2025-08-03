@@ -12,6 +12,7 @@ export class Main {
   private interfaceService = inject(InterfaceService);
   public showSearchBar = this.interfaceService.showSearchBar;
   public showUserMenu = this.interfaceService.showUserMenu;
+  public selectedTemperatureUnit = this.interfaceService.getSelectedTemperatureUnit;
 
   public onSearchBarToggle(): void {
     this.interfaceService.toggleSearchBar();
@@ -19,5 +20,9 @@ export class Main {
 
   public onUserMenuToggle(): void {
     this.interfaceService.toggleUserMenu();
+  }
+
+  public onTemperatureUnitChange(unit: 'C' | 'F'): void {
+    this.interfaceService.setSelectedTemperatureUnit(unit);
   }
 }
