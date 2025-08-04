@@ -2,14 +2,49 @@
     <h1 class="text-4xl lg:text-5xl w-full text-center md:text-left">Log in</h1>
     <p class="font-['UbuntuRegular']">
         Don't have an account?
-        <a href="/account/register" class="text-[var(--tertiary-color)] underline">Sign up</a>
+        <a routerLink="/account/register" class="text-[var(--tertiary-color)] underline">Sign up</a>
     </p>
-    <form action="" class="flex flex-col gap-5 w-full">
-        <input type="email" placeholder="Email"
-            class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-        <input type="password" placeholder="Enter your password"
-            class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-        <button
+    <form class="flex flex-col gap-5 w-full" (ngSubmit)="onSubmit()">
+        <div class="flex flex-col gap-2">
+            <input type="email" placeholder="Email"
+                class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                [(ngModel)]="email" name="email">
+            <span class="text-red-500 text-sm" *ngIf="email && !isValidEmail()">Invalid email format</span>
+        </div>
+        <div class="flex flex-col gap-2">
+            <input type="password" placeholder="Enter your password"
+                class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                [formControl]="passwordControl">
+
+            @if (passwordControl.value) {
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-slate-400">Fortaleza:</span>
+                    <span class="text-xs" [class.text-red-400]="authService.passwordStrength() < 30"
+                        [class.text-yellow-400]="authService.passwordStrength() >= 30 && authService.passwordStrength() < 70"
+                        [class.text-green-400]="authService.passwordStrength() >= 70">
+                        {{ authService.passwordMessage() }}
+                    </span>
+                </div>
+                <div class="w-full bg-slate-600 rounded-full h-2">
+                    <div class="h-2 rounded-full transition-all duration-300"
+                        [class.bg-red-400]="authService.passwordStrength() < 30"
+                        [class.bg-yellow-400]="authService.passwordStrength() >= 30 && authService.passwordStrength() < 70"
+                        [class.bg-green-400]="authService.passwordStrength() >= 70"
+                        [style.width.%]="authService.passwordStrength()"></div>
+                </div>
+                <p class="text-sm" [class.text-green-400]="authService.isPasswordValid()"
+                    [class.text-red-400]="!authService.isPasswordValid()">
+                    @if (passwordControl.value && passwordControl.value.length < 8) { <span class="text-red-400">La
+                        contraseña debe tener al menos 8 caracteres</span>
+                        } @else {
+                        {{ authService.passwordMessage() }}
+                        }
+                </p>
+            </div>
+            }
+        </div>
+        <button type="submit"
             class="bg-[var(--tertiary-color)] py-4 px-7 rounded-lg hover:bg-[var(--hover-yellow-color)] cursor-pointer duration-200 ease-in-out">
             Continue
         </button>
