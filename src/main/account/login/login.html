@@ -24,8 +24,9 @@
                 class="w-full bg-[var(--input-background-color)] py-4 px-6 rounded-lg font-['UbuntuRegular'] text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
                 [formControl]="passwordControl">
 
-            @if (passwordControl.value && passwordControl.value.length < 8) { <div
-                class="flex items-center justify-between">
+            <!-- {{ authService.passwordValidation().message }} -->
+            @if (passwordControl.value && (passwordControl.value.length < 8 || passwordControl.value.includes(' '))) { 
+                <div class="flex items-center justify-between">
                 <span class="text-xs text-red-400">
                     {{ authService.passwordValidation().message }}
                 </span>

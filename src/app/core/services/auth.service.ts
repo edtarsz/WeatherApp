@@ -18,14 +18,14 @@ export class AuthService {
         const strength = this.passwordStrength();
         const password = this.password();
 
-        if (/\s/.test(password)) {
-            return { isValid: false, message: 'La contraseña no debe contener espacios' };
-        }
-
         if (password.length < 8) {
             return { isValid: false, message: 'La contraseña debe tener al menos 8 caracteres' };
         }
 
+        if (/\s/.test(password)) {
+            return { isValid: false, message: 'La contraseña no debe contener espacios' };
+        }
+        
         if (password.length > 50) {
             return { isValid: false, message: 'La contraseña debe tener menos de 50 caracteres' };
         }

@@ -28,17 +28,68 @@
                 </div>
                 <form action="" class="flex flex-col gap-3 sm:gap-5 w-full">
                     <div class="flex flex-col lg:flex-row gap-5 w-full">
-                        <input type="text" placeholder="First Name"
-                            class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                        <input type="text" placeholder="Last Name"
-                            class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                        <div class="flex flex-col gap-2 w-full">
+                            <div class="flex flex-col lg:flex-row gap-5 w-full">
+                                <input type="text" placeholder="First Name"
+                                    class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                                    [formControl]="firstNameControl">
+                                <input type="text" placeholder="Last Name"
+                                    class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                                    [formControl]="lastNameControl">
+                            </div>
+                            @if (!authService.nameValidation().isValid && (firstNameControl.value ||
+                            lastNameControl.value))
+                            {
+                            <div class="flex flex-col gap-2">
+                                <span class="text-xs" [class.text-green-400]="authService.nameValidation().isValid"
+                                    [class.text-red-400]="!authService.nameValidation().isValid">
+                                    {{ authService.nameValidation().message }}
+                                </span>
+                            </div>
+                            }
+                        </div>
                     </div>
-                    <input type="email" placeholder="Email"
-                        class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                    <input type="password" placeholder="Enter your password"
-                        class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
-                    <input type="password" placeholder="Confirm your password"
-                        class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                    <div class="flex flex-col gap-2">
+                        <input type="email" placeholder="Email"
+                            class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                            [formControl]="emailControl">
+
+                        @if (!authService.emailValidation().isValid && emailControl.value) {
+                        <div class="flex flex-col gap-2">
+                            <span class="text-xs" [class.text-green-400]="authService.emailValidation().isValid"
+                                [class.text-red-400]="!authService.emailValidation().isValid">
+                                {{ authService.emailValidation().message }}
+                            </span>
+                        </div>
+                        }
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <input type="password" placeholder="Enter your password"
+                            class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                            [formControl]="passwordControl">
+                        @if (passwordControl.value && (passwordControl.value.length < 8 ||
+                            passwordControl.value.includes(' '))) { 
+                            <div class="flex items-center justify-between">
+                            <span class="text-xs text-red-400">
+                                {{ authService.passwordValidation().message }}
+                            </span>
+                            </div>
+                        }
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <input type="password" placeholder="Confirm your password"
+                            class="w-full bg-[var(--input-background-color)] py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none"
+                            [formControl]="confirmPasswordControl">
+
+                        @if (confirmPasswordControl.value && confirmPasswordControl.value && confirmPasswordControl.value !== passwordControl.value) { 
+                            <div class="flex items-center justify-between">
+                            <span class="text-xs text-red-400">
+                                Las contraseñas no coinciden
+                            </span>
+                            </div>
+                        }
+                    </div>
+                    
                     <button
                         class="bg-[var(--tertiary-color)] py-3 sm:py-4 px-7 rounded-lg hover:bg-[var(--hover-yellow-color)] cursor-pointer duration-200 ease-in-out text-[0.7rem] sm:text-[0.9rem]">
                         Create account
