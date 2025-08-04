@@ -10,18 +10,17 @@ import { AuthService } from '../../../app/core/services/auth.service';
   styleUrl: './login.css'
 })
 export class Login {
-  email: string = '';
-  passwordControl = new FormControl('', [Validators.required]);
+  emailControl = new FormControl('');
+  passwordControl = new FormControl('');
 
   constructor(public authService: AuthService) {
-    this.passwordControl.valueChanges.subscribe(value => {
-      this.authService.validatePassword(value || '');
+    this.emailControl.valueChanges.subscribe(value => {
+      this.authService.updateEmail(value || '');
     });
-  }
 
-  isValidEmail(): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(this.email);
+    this.passwordControl.valueChanges.subscribe(value => {
+      this.authService.updatePassword(value || '');
+    });
   }
 
   onSubmit() {
