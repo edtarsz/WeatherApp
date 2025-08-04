@@ -3,11 +3,11 @@
 <div class="fixed bg-[url('/images/content-bg-svg.svg')] bg-cover w-screen h-screen z-0" loading="eager"></div>
 
 <!-- Botón de usuario para poder usar el menú despues de poner el layer negro, ir a header linea 38-->
-<div class="w-10 h-10 rounded-full fixed bg-white lg:hidden z-3 top-[2.5vh] right-[10vw]" (click)="onUserMenuToggle()">
+<div class="cursor-pointer w-10 h-10 rounded-full fixed bg-white lg:hidden z-3 top-[2.5vh] right-[10vw]"
+    (click)="onUserMenuToggle()">
 </div>
 
 @if (showSearchBar()) {
-
 <div (click)="onSearchBarToggle()"
     class="fixed w-screen h-screen top-0 bg-[rgba(0,0,0,0.7)] z-2 backdrop-blur-md justify-center items-center flex flex-col">
     <div class="w-[90vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] flex flex-col justify-center items-center gap-5 bg-[var(--card-background-color)] rounded-2xl border border-[rgba(255,255,255,0.2)]"
@@ -107,11 +107,11 @@
         <ul class="w-full flex flex-col items-end gap-5 px-[10vw]" (click)=" $event.stopPropagation()">
             <li class="flex items-center gap-2 cursor-pointer text-sm">
                 <img src="assets/svg/settings-svg.svg" alt="">
-                <a class="text-white" href="#">Settings</a>
+                <a class="text-white" routerLink="/settings">Settings</a>
             </li>
             <li class="flex items-center gap-2 cursor-pointer text-sm">
                 <img src="assets/svg/sign-out-svg.svg" alt="">
-                <a class="text-[var(--dark-red)]" href="#">Sign out</a>
+                <a class="text-[var(--dark-red)]" routerLink="/index">Sign out</a>
             </li>
         </ul>
     </div>

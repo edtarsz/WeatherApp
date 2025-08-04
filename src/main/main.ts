@@ -1,10 +1,11 @@
 import { Component, inject, OnDestroy } from '@angular/core';
 import { Header } from "../app/shared/header/header";
 import { InterfaceService } from '../app/core/services/interface.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main',
-  imports: [Header],
+  imports: [Header, RouterLink],
   templateUrl: './main.html',
   styleUrl: './main.css'
 })
