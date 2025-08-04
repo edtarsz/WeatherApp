@@ -1,1 +1,51 @@
-<p>settings works!</p>
+<div class="bg-[url('/images/register-bg-svg.svg')] bg-cover bg-bottom h-screen w-screen text-white">
+    <main class="flex w-screen h-screen justify-start items-center px-[10vw]">
+        <div class="w-full h-full flex flex-col justify-center gap-[5vh]">
+            <div class="flex items-center gap-5">
+                <img src="/assets/svg/back-svg.svg" alt=""
+                    class="w-7 h-7 sm:w-10 sm:h-10 cursor-pointer fixed sm:relative" routerLink="/main">
+                <h1 class="lg:text-5xl w-full text-center text-3xl sm:text-4xl md:text-left">Settings</h1>
+            </div>
+            <div
+                class="flex flex-col sm:grid sm:grid-cols-[minmax(300px,1fr)_4fr] justify-center items-start gap-5 w-full h-auto">
+                <div
+                    class="w-full h-full bg-[var(--card-background-color)] flex flex-col justify-center items-center gap-5 p-[5vw] sm:p-10 rounded-lg border border-[rgba(255,255,255,0.3)] shadow-lg">
+                    <div class="w-20 h-20 sm:w-30 sm:h-30 rounded-full relative bg-white"></div>
+                    <p class="text-center">Rosalía Pérez Acuña</p>
+                    <div class="w-full h-[1px] bg-[rgba(255,255,255,0.2)]"></div>
+                    <div class="flex items-center justify-between w-full gap-5">
+                        <div
+                            class="flex items-center justify-center gap-2 cursor-pointer text-sm border bg-[var(--edit-background-blue)] border-[var(--edit-border-blue)] text-[var(--edit-border-blue)] py-1 w-full rounded">
+                            <img src="/assets/svg/edit-svg.svg" alt="">
+                            <span>Editar</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-center gap-2 cursor-pointer text-sm border bg-[var(--delete-background-red)] border-[var(--delete-border-red)] text-[var(--delete-border-red)] py-1 w-full rounded">
+                            <img src="/assets/svg/delete-svg.svg" alt="">
+                            <span>Eliminar</span>
+                        </div>
+                    </div>
+                </div>
+                <form action="" class="flex flex-col gap-3 sm:gap-5 w-full">
+                    <div class="flex flex-col lg:flex-row gap-5 w-full">
+                        <input type="text" placeholder="First Name"
+                            class="w-full bg-[var(--input-background-color)] py-2 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                        <input type="text" placeholder="Last Name"
+                            class="w-full bg-[var(--input-background-color)] py-2 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                    </div>
+                    <input type="email" placeholder="Email"
+                        class="w-full bg-[var(--input-background-color)] py-2 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                    <input type="password" placeholder="Enter your password"
+                        class="w-full bg-[var(--input-background-color)] py-2 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                    <input type="password" placeholder="Confirm your password"
+                        class="w-full bg-[var(--input-background-color)] py-2 sm:py-4 px-4 sm:px-6 rounded-lg font-['UbuntuRegular'] text-[0.7rem] sm:text-[0.9rem] border border-[rgba(255,255,255,0.3)] focus:outline-none">
+                    <button
+                        class="bg-[var(--tertiary-color)] py-2 sm:py-4 px-7 rounded-lg hover:bg-[var(--hover-yellow-color)] cursor-pointer duration-200 ease-in-out text-[0.7rem] sm:text-[0.9rem]">
+                        Create account
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</div>

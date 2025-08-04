@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { LandingPage } from '../main/landing.page/landing.page';
-import { Account } from '../account/account';
-import { Register } from '../account/register/register';
-import { Login } from '../account/login/login';
 import { Main } from '../main/main';
+import { Settings } from '../main/settings/settings';
+import { Account } from '../main/account/account';
+import { Login } from '../main/account/login/login';
+import { Register } from '../main/account/register/register';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,10 @@ export const routes: Routes = [
     {
         path: 'main',
         component: Main
+    },
+    {
+        path: 'settings',
+        component: Settings
     },
     {
         path: '**',
