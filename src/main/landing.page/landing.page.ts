@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { InterfaceService } from '../app/core/services/interface.service';
+import { InterfaceService } from '../../app/core/services/interface.service';
 
 @Component({
   selector: 'app-landing-page',

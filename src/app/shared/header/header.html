@@ -27,12 +27,16 @@
                 ° F
             </span>
         </div>
+
+
         <div class="group relative flex items-center gap-5 cursor-pointer">
             <div class="flex items-center gap-5">
                 <p class="group-hover:text-[var(--hover-color)] hidden lg:flex">Rosalía Pérez Acuña</p>
-                <div class="w-10 h-10 rounded-full relative bg-white lg:flex hidden"></div>
-                <!-- Para que solo permita el click en resoluciones pequeñas -->
-                <div class="w-10 h-10 rounded-full relative bg-white lg:hidden" (click)="onUserMenuToggle()"></div>
+                <div class="w-10 h-10 rounded-full relative bg-white hidden lg:flex"></div>
+                <!-- OLD: Para que solo permita el click en resoluciones pequeñas -->
+                <!-- Icono para cubrir el espacio donde va el avatar en el componente de main -->
+                <!-- No se usó ya que se necesita que el avatar este visible tras aparecer el fondo del menu -->
+                <div class="w-10 h-10 rounded-full invisible bg-white lg:hidden" (click)="onUserMenuToggle()"></div>
             </div>
 
             <div class="absolute top-[55px] bg-[var(--dark-blue)] w-[200px] hidden lg:flex flex-col gap-3 py-3 rounded-lg border border-[var(--border-pop-up-color)]
