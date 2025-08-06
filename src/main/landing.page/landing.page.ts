@@ -1,6 +1,7 @@
-import { Component, inject, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { InterfaceService } from '../../app/core/services/interface.service';
+import { WeatherService } from '../../app/core/services/weater.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,11 +11,11 @@ import { InterfaceService } from '../../app/core/services/interface.service';
 })
 export class LandingPage implements OnDestroy {
   private interfaceService = inject(InterfaceService);
+
   public showMenuIndex = this.interfaceService.showMenuIndex;
 
   public onMenuIndexToggle(): void {
     this.interfaceService.toggleMenuIndex();
-
   }
 
   ngOnDestroy(): void {

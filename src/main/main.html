@@ -121,7 +121,8 @@
 <!-- <div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh]"> -->
 <!-- Overflow hidden para bug en scroll eje x tras crear el card de pronostico por 7 días -->
 <!-- Error no encontrado -->
-<div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh] overflow-x-hidden"
+<div *ngIf="data$ | async as data"
+    class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh] overflow-x-hidden"
     [class.overflow-y-hidden]="showSearchBar()">
     <main
         class="w-screen h-auto grid sm:grid-cols-[2fr_1fr] grid-cols-1 m-auto px-[5vw] lg:px-[5vw] xl:px-[10vw] py-10 gap-5">
@@ -152,33 +153,148 @@
                 <header class="flex justify-between sm:pb-5 items-center">
                     <div class="flex items-center gap-2">
                         <img src="/assets/svg/pin-white-svg.svg" alt="">
-                        <h3 class="text-[12px] sm:text-base lg:text-lg">Sonora, México</h3>
+                        <!-- <h3 class="text-[12px] sm:text-base lg:text-lg">{{data.location | json}}</h3> -->
+                        <h3 class="text-[12px] sm:text-base lg:text-lg">{{ data.location.region }},
+                            {{ data.location.country }}</h3>
                     </div>
-                    <h4 class="text-[rgba(255,255,255,0.5)] text-[10px] md:text-sm">Actualizado
-                        hace
-                        5min
+                    <h4 class="text-[rgba(255,255,255,0.5)] text-[10px] md:text-sm">
+                        Actualizado hace 5min
                     </h4>
                 </header>
 
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col gap-3">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">43°</h1>
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">{{ data.current.temp_c }}°
+                        </h1>
                         <div>
-                            <h2 class="text-sm sm:text-base md:text-lg lg:text-xl">Parcialmente Nublado</h2>
-                            <h3 class="text-sm text-[rgba(255,255,255,0.5)]">Sensación térmica 41°</h3>
+                            <h2 class="text-sm sm:text-base md:text-lg lg:text-xl">{{ data.current.condition.text }}
+                            </h2>
+                            <h3 class="text-sm text-[rgba(255,255,255,0.5)]">Sensación térmica {{
+                                data.current.feelslike_c }}°</h3>
                         </div>
                     </div>
 
                     <div>
-                        <img src="/assets/svg/cloud-svg.svg" alt=""
-                            class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                        <!-- Repetitive, TO DO -->
+                        <ng-container [ngSwitch]="data.current.condition.code">
+                            <img *ngSwitchCase="1000" src="/assets/svg/icon-weather/sunny.svg" alt="Sunny"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1003" src="/assets/svg/icon-weather-cloud.svg" alt="Partly cloudy"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1006" src="/assets/svg/icon-weather-cloud.svg" alt="Cloudy"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1009" src="/assets/svg/icon-weather-cloud.svg" alt="Overcast"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1030" src="/assets/svg/icon-weather-mist.svg" alt="Mist"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1063" src="/assets/svg/rain-blue-svg.svg" alt="Patchy rain possible"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1066" src="/assets/svg/snow-svg.svg" alt="Patchy snow possible"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1069" src="/assets/svg/sleet-svg.svg" alt="Patchy sleet possible"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1072" src="/assets/svg/drizzle-svg.svg"
+                                alt="Patchy freezing drizzle possible"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1087" src="/assets/svg/thunder-svg.svg"
+                                alt="Thundery outbreaks possible"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1114" src="/assets/svg/snow-svg.svg" alt="Blowing snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1117" src="/assets/svg/snow-svg.svg" alt="Blizzard"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1135" src="/assets/svg/fog-svg.svg" alt="Fog"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1147" src="/assets/svg/fog-svg.svg" alt="Freezing fog"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1150" src="/assets/svg/drizzle-svg.svg" alt="Patchy light drizzle"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1153" src="/assets/svg/drizzle-svg.svg" alt="Light drizzle"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1168" src="/assets/svg/drizzle-svg.svg" alt="Freezing drizzle"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1171" src="/assets/svg/drizzle-svg.svg" alt="Heavy freezing drizzle"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1180" src="/assets/svg/rain-blue-svg.svg" alt="Patchy light rain"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1183" src="/assets/svg/rain-blue-svg.svg" alt="Light rain"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1186" src="/assets/svg/rain-blue-svg.svg" alt="Moderate rain at times"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1189" src="/assets/svg/rain-blue-svg.svg" alt="Moderate rain"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1192" src="/assets/svg/rain-blue-svg.svg" alt="Heavy rain at times"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1195" src="/assets/svg/rain-blue-svg.svg" alt="Heavy rain"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1198" src="/assets/svg/rain-blue-svg.svg" alt="Light freezing rain"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1201" src="/assets/svg/rain-blue-svg.svg"
+                                alt="Moderate or heavy freezing rain"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1204" src="/assets/svg/sleet-svg.svg" alt="Light sleet"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1207" src="/assets/svg/sleet-svg.svg" alt="Moderate or heavy sleet"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1210" src="/assets/svg/snow-svg.svg" alt="Patchy light snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1213" src="/assets/svg/snow-svg.svg" alt="Light snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1216" src="/assets/svg/snow-svg.svg" alt="Patchy moderate snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1219" src="/assets/svg/snow-svg.svg" alt="Moderate snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1222" src="/assets/svg/snow-svg.svg" alt="Patchy heavy snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1225" src="/assets/svg/snow-svg.svg" alt="Heavy snow"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1237" src="/assets/svg/ice-pellets-svg.svg" alt="Ice pellets"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1240" src="/assets/svg/rain-blue-svg.svg" alt="Light rain shower"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1243" src="/assets/svg/rain-blue-svg.svg"
+                                alt="Moderate or heavy rain shower"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1246" src="/assets/svg/rain-blue-svg.svg" alt="Torrential rain shower"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1249" src="/assets/svg/sleet-svg.svg" alt="Light sleet showers"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1252" src="/assets/svg/sleet-svg.svg"
+                                alt="Moderate or heavy sleet showers"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1255" src="/assets/svg/snow-svg.svg" alt="Light snow showers"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1258" src="/assets/svg/snow-svg.svg"
+                                alt="Moderate or heavy snow showers"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1261" src="/assets/svg/ice-pellets-svg.svg"
+                                alt="Light showers of ice pellets"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1264" src="/assets/svg/ice-pellets-svg.svg"
+                                alt="Moderate or heavy showers of ice pellets"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1273" src="/assets/svg/thunder-rain-svg.svg"
+                                alt="Patchy light rain with thunder"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1276" src="/assets/svg/thunder-rain-svg.svg"
+                                alt="Moderate or heavy rain with thunder"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1279" src="/assets/svg/thunder-snow-svg.svg"
+                                alt="Patchy light snow with thunder"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchCase="1282" src="/assets/svg/thunder-snow-svg.svg"
+                                alt="Moderate or heavy snow with thunder"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                            <img *ngSwitchDefault src="/assets/svg/icon-weather-cloud.svg" alt="Default"
+                                class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+                        </ng-container>
                     </div>
                 </div>
             </div>
             <div
                 class="w-full h-auto bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
                 <h4 class="text-[12px] sm:text-base lg:text-lg">Pronostico por horas</h4>
-                <ul class="flex gap-10 sm:pl-5 pt-3 sm:pt-5 w-full sm:w-[50vw] lg:w-full h-auto overflow-x-auto">
+                <ul class="flex gap-10 sm:pl-5 py-3 sm:pt-5 w-full sm:w-[50vw] lg:w-full h-auto overflow-x-auto">
                     <!-- <ul class="flex gap-10 pl-5 py-5 w-auto h-auto overflow-x-scroll"> -->
                     <!-- TO DO, CUANDO HAY MÁS DE 3 LIST ITEMS EL RESPONSIVE NO FUNCIONA CORRECTAMENTE -->
                     <li>
@@ -378,7 +494,7 @@
                             <img src="/assets/svg/humidity-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Humedad</h5>
                         </div>
-                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">{{ data.current.humidity }}%</h2>
                     </div>
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
@@ -386,7 +502,7 @@
                             <img src="/assets/svg/wind-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Viento</h5>
                         </div>
-                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">{{ data.current.wind_kph }}km/h</h2>
                     </div>
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
@@ -394,7 +510,8 @@
                             <img src="/assets/svg/pressure-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Presión</h5>
                         </div>
-                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">{{ data.current.pressure_mb }}hPa
+                        </h2>
                     </div>
                     <div
                         class="flex justify-between sm:flex-col gap-1 bg-[var(--small-card-background-color)] px-3 py-3 rounded-lg mt-5">
@@ -402,7 +519,7 @@
                             <img src="/assets/svg/visibility-svg.svg" alt="">
                             <h5 class="text-[rgba(255,255,255,0.4)] text-sm">Visibilidad</h5>
                         </div>
-                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">65%</h2>
+                        <h2 class="text-base sm:text-1xl md:text-2xl lg:text-3xl">{{ data.current.vis_km }}km</h2>
                     </div>
                 </div>
             </div>
