@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WeatherDTO } from '../models/weather';
+import { key } from './key';
 
 @Injectable({
     providedIn: 'root'
 })
 export class WeatherService {
-    private readonly key = '449418c26ea54ab79ea230318250408';
+    private readonly key = key;
 
     constructor(private http: HttpClient) { }
 
