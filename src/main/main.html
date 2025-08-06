@@ -8,96 +8,7 @@
 </div>
 
 @if (showSearchBar()) {
-<div (click)="onSearchBarToggle()"
-    class="fixed w-screen h-screen top-0 bg-[rgba(0,0,0,0.7)] z-4 backdrop-blur-md justify-center items-center flex flex-col">
-    <div class="w-[90vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] flex flex-col justify-center items-center gap-5 bg-[var(--card-background-color)] rounded-2xl border border-[rgba(255,255,255,0.2)]"
-        (click)="$event.stopPropagation()">
-        <div class="h-full w-full lg:p-20 px-[5vw] py-[5vw] gap-5 flex flex-col items-center text-white">
-            <div class="w-full justify-between flex">
-                <p class="text-white text-sm md:text-base lg:text-lg">Buscar ubicación</p>
-                <img (click)="onSearchBarToggle()" src="assets/svg/cross-svg.svg" alt="Cerrar" class="cursor-pointer">
-            </div>
-            <div
-                class="py-2 w-full flex gap-2 bg-[var(--small-card-background-color)] rounded-xl px-4 items-center border border-[rgba(255,255,255,0.2)] cursor-pointer">
-                <img src="/assets/svg/search-svg.svg" alt="Search Icon" class="w-5 h-5">
-                <input type="search" placeholder="Buscar ciudad..."
-                    class="text-[12px] md:text-sm [&::-webkit-search-cancel-button]:hidden w-full font-normal text-[rgba(255,255,255,0.5)] focus:outline-none focus:border-[var(--primary-color)]"
-                    style="font-family: var(--ubuntu-regular);">
-            </div>
-            <div class="w-full h-auto flex flex-col gap-3">
-                <p class="text-[rgba(255,255,255,0.3)] text-[12px] md:text-sm lg:text-base">Resultados</p>
-            </div>
-            <div class="w-full h-auto flex flex-col gap-3 pl-0 sm:pl-5">
-                <div class="flex items-center justify-between w-full h-auto gap-1 sm:gap-5 cursor-pointer">
-                    <div class="flex items-center gap-2 sm:gap-5 w-full h-auto">
-                        <img src="/assets/svg/pin-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                        <div>
-                            <p
-                                class="text-[12px] sm:text-sm md:text-base text-white break-words whitespace-normal w-full">
-                                Madrid</p>
-                            <p class="text-[12px] sm:text-sm md:text-base text-[rgba(255,255,255,0.5)] break-words whitespace-normal w-full"
-                                style="font-family: var(--ubuntu-regular);">
-                                Comunidad de Madrid, España
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 sm:gap-4 h-full">
-                        <div class="flex flex-col justify-start items-end w-full h-full">
-                            <p class="text-[12px] sm:text-sm md:text-base">22°C</p>
-                            <img src="/assets/svg/cloud-blue-svg.svg" alt=""
-                                class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                        </div>
-                        <img src="/assets/svg/arrow-right-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                    </div>
-                </div>
-                <div class="flex items-center justify-between w-full h-auto gap-1 sm:gap-5 cursor-pointer">
-                    <div class="flex items-center gap-2 sm:gap-5 w-full h-full">
-                        <img src="/assets/svg/pin-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                        <div>
-                            <p
-                                class="text-[12px] sm:text-sm md:text-base text-white break-words whitespace-normal w-full">
-                                Madrid</p>
-                            <p class="text-[12px] sm:text-sm md:text-base text-[rgba(255,255,255,0.5)] break-words whitespace-normal w-full"
-                                style="font-family: var(--ubuntu-regular);">
-                                Comunidad de Madrid, España
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 sm:gap-4 h-full">
-                        <div class="flex flex-col justify-center items-end w-full h-full">
-                            <p class="text-[12px] sm:text-sm md:text-base">22°C</p>
-                            <img src="/assets/svg/cloud-blue-svg.svg" alt=""
-                                class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                        </div>
-                        <img src="/assets/svg/arrow-right-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                    </div>
-                </div>
-                <div class="flex items-center justify-between w-full h-auto gap-1 sm:gap-5 cursor-pointer">
-                    <div class="flex items-center gap-2 sm:gap-5 w-full h-full">
-                        <img src="/assets/svg/pin-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                        <div>
-                            <p
-                                class="text-[12px] sm:text-sm md:text-base text-white break-words whitespace-normal w-full">
-                                Madrid</p>
-                            <p class="text-[12px] sm:text-sm md:text-base text-[rgba(255,255,255,0.5)] break-words whitespace-normal w-full"
-                                style="font-family: var(--ubuntu-regular);">
-                                Comunidad de Madrid, EspañaComunidad de Madrid, dasdsadsadsad
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1 sm:gap-4 h-full">
-                        <div class="flex flex-col justify-center items-end w-full h-full">
-                            <p class="text-[12px] sm:text-sm md:text-base">22°C</p>
-                            <img src="/assets/svg/cloud-blue-svg.svg" alt=""
-                                class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                        </div>
-                        <img src="/assets/svg/arrow-right-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<app-search></app-search>
 }
 
 @if (showUserMenu()) {
@@ -119,9 +30,7 @@
 }
 
 <!-- <div class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh]"> -->
-<!-- Overflow hidden para bug en scroll eje x tras crear el card de pronostico por 7 días -->
-<!-- Error no encontrado -->
-<div *ngIf="data$ | async as data"
+<div *ngIf="weatherData() as data"
     class="relative z-1 bg-cover bg-bottom sm:h-[90vh] h-auto w-screen top-[10vh] overflow-x-hidden"
     [class.overflow-y-hidden]="showSearchBar()">
     <main
@@ -147,7 +56,9 @@
                 </span>
             </div>
         </div>
-        <div class="flex flex-col gap-5">
+
+        <!-- AQUI ESTABA EL ERROR LOL | overflow hidden a la columna de la izquierda para que no se salga del contenedor hourly -->
+        <div class="flex flex-col gap-5 overflow-hidden">
             <div class="flex h-auto flex-col gap-3 justify-center bg-[url('/images/purple-blur-bg-svg.svg')] bg-cover px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]"
                 loading="eager">
                 <header class="flex justify-between sm:pb-5 items-center">
@@ -183,13 +94,14 @@
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
                             <img *ngSwitchCase="1006" src="/assets/svg/icon-weather-cloud.svg" alt="Cloudy"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                            <img *ngSwitchCase="1009" src="/assets/svg/icon-weather-cloud.svg" alt="Overcast"
+                            <img *ngSwitchCase="1009" src="/assets/svg/icon-weather/cloud.svg" alt="Overcast"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                            <img *ngSwitchCase="1030" src="/assets/svg/icon-weather-mist.svg" alt="Mist"
+                            <img *ngSwitchCase="1030" src="/assets/svg/icon-weather/mist.svg" alt="Mist"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                            <img *ngSwitchCase="1063" src="/assets/svg/rain-blue-svg.svg" alt="Patchy rain possible"
+                            <img *ngSwitchCase="1063" src="/assets/svg/icon-weather/rain-blue.svg"
+                                alt="Patchy rain possible"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                            <img *ngSwitchCase="1066" src="/assets/svg/snow-svg.svg" alt="Patchy snow possible"
+                            <img *ngSwitchCase="1066" src="/assets/svg/icon-weather/snow.svg" alt="Patchy snow possible"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
                             <img *ngSwitchCase="1069" src="/assets/svg/sleet-svg.svg" alt="Patchy sleet possible"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
@@ -285,203 +197,18 @@
                             <img *ngSwitchCase="1282" src="/assets/svg/thunder-snow-svg.svg"
                                 alt="Moderate or heavy snow with thunder"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
-                            <img *ngSwitchDefault src="/assets/svg/icon-weather-cloud.svg" alt="Default"
+                            <img *ngSwitchDefault src="/assets/svg/icon-weather/cloud.svg" alt="Default"
                                 class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
                         </ng-container>
                     </div>
                 </div>
             </div>
-            <div
-                class="w-full h-auto bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
-                <h4 class="text-[12px] sm:text-base lg:text-lg">Pronostico por horas</h4>
-                <ul class="flex gap-10 sm:pl-5 py-3 sm:pt-5 w-full sm:w-[50vw] lg:w-full h-auto overflow-x-auto">
-                    <!-- <ul class="flex gap-10 pl-5 py-5 w-auto h-auto overflow-x-scroll"> -->
-                    <!-- TO DO, CUANDO HAY MÁS DE 3 LIST ITEMS EL RESPONSIVE NO FUNCIONA CORRECTAMENTE -->
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
-                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
-                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
-                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
-                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
-                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <ul class="text-center flex flex-col gap-2">
-                                <li class="text-[12px] sm:text-base lg:text-lg">Ahora</li>
-                                <li class="flex justify-center">
-                                    <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                </li>
-                                <li class="text-[12px] sm:text-base lg:text-lg">22°</li>
-                                <li class="text-[10px] sm:text-sm text-[var(--edit-border-blue)]">10%</li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div
-                class="bg-[var(--card-background-color)] px-[4vw] py-[4vw] lg:px-8 lg:py-8 text-white rounded-2xl border border-[rgba(255,255,255,0.2)]">
-                <h4 class="text-[12px] sm:text-base lg:text-lg">Pronostico de 7 días</h4>
-                <div
-                    class="grid grid-cols-[5fr_4fr] gap-5 sm:flex  pt-3 sm:pt-5 sm:pl-5 w-full h-auto items-center justify-between">
-                    <div class="grid grid-cols-2 w-auto">
-                        <ul class="flex flex-col gap-3 sm:gap-5 justify-around">
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Hoy</li>
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Mañana</li>
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Miércoles</li>
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Jueves</li>
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Viernes</li>
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Sábado</li>
-                            <li class="text-[12px] sm:text-base lg:text-lg w-fit">Domingo</li>
-                        </ul>
-                        <ul class="flex flex-col gap-3 sm:gap-5">
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/sun-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Soleado</p>
-                            </li>
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
-                            </li>
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
-                            </li>
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
-                            </li>
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
-                            </li>
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
-                            </li>
-                            <li class="flex gap-2 items-center">
-                                <img src="/assets/svg/rain-blue-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">Lluvia</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid grid-cols-2 w-auto gap-0 sm:gap-5">
-                        <ul class="flex flex-col gap-3 sm:gap-5 w-full">
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/raise-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">20°</p>
-                            </li>
-                        </ul>
-                        <ul class="flex flex-col gap-3 sm:gap-5 w-full">
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
 
-                            <li class="flex items-center gap-2 justify-end">
-                                <img src="/assets/svg/drop-svg.svg" alt="" class="w-5 h-5">
-                                <p class="text-[12px] sm:text-base lg:text-lg">15°</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <!-- Hourly Forecast -->
+            <app-hourly [data]="weatherData()"></app-hourly>
+
+            <!-- Daily Forecast -->
+            <app-daily></app-daily>
         </div>
         <div class="flex flex-col gap-5">
             <div

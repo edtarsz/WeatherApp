@@ -3,17 +3,20 @@ import { Header } from "../app/shared/header/header";
 import { InterfaceService } from '../app/core/services/interface.service';
 import { RouterLink } from '@angular/router';
 import { WeatherService } from '../app/core/services/weater.service';
-import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { WeatherDTO } from '../app/core/models/weather';
 import { Observable } from 'rxjs';
+import { Search } from "./search/search";
+import { Hourly } from "./hourly/hourly";
+import { Daily } from "./daily/daily";
 
 @Component({
   selector: 'app-main',
-  imports: [Header, RouterLink, JsonPipe, AsyncPipe, CommonModule],
+  imports: [Header, RouterLink, AsyncPipe, CommonModule, Search, Hourly, Daily],
   templateUrl: './main.html',
   styleUrl: './main.css'
 })
-export class Main implements OnDestroy, OnInit {
+export class Main implements OnDestroy {
   private weatherService = inject(WeatherService);
   private interfaceService = inject(InterfaceService);
 
@@ -21,11 +24,9 @@ export class Main implements OnDestroy, OnInit {
   public showUserMenu = this.interfaceService.showUserMenu;
   public selectedTemperatureUnit = this.interfaceService.getSelectedTemperatureUnit;
 
-  data$: Observable<WeatherDTO> | undefined;
-
-  ngOnInit(): void {
-    this.data$ = this.weatherService.getWeatherCity('california');
-  }
+  weatherData = this.weatherService.weatherData;
+  loading = this.weatherService.loading;
+  error = this.weatherService.error;
 
   public onSearchBarToggle(): void {
     this.interfaceService.toggleSearchBar();

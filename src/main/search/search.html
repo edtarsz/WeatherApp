@@ -1,0 +1,93 @@
+<div (click)="onSearchBarToggle()"
+    class="fixed w-screen h-screen top-0 bg-[rgba(0,0,0,0.7)] z-4 backdrop-blur-md justify-center items-center flex flex-col">
+    <div class="w-[90vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] flex flex-col justify-center items-center gap-5 bg-[var(--card-background-color)] rounded-2xl border border-[rgba(255,255,255,0.2)]"
+        (click)="$event.stopPropagation()">
+        <div class="h-full w-full lg:p-20 px-[5vw] py-[5vw] gap-5 flex flex-col items-center text-white">
+            <div class="w-full justify-between flex">
+                <p class="text-white text-sm md:text-base lg:text-lg">Buscar ubicación</p>
+                <img (click)="onSearchBarToggle()" src="assets/svg/cross-svg.svg" alt="Cerrar" class="cursor-pointer">
+            </div>
+            <div
+                class="py-2 w-full flex gap-2 bg-[var(--small-card-background-color)] rounded-xl px-4 items-center border border-[rgba(255,255,255,0.2)] cursor-pointer">
+                <img src="/assets/svg/search-svg.svg" alt="Search Icon" class="w-5 h-5">
+                <input [formControl]="searchControl" type="search" placeholder="Buscar ciudad..."
+                    class="text-[12px] md:text-sm [&::-webkit-search-cancel-button]:hidden w-full font-normal text-[rgba(255,255,255,0.5)] focus:outline-none focus:border-[var(--primary-color)]"
+                    style="font-family: var(--ubuntu-regular);">
+            </div>
+            <div class="w-full h-auto flex flex-col gap-3">
+                <p class="text-[rgba(255,255,255,0.3)] text-[12px] md:text-sm lg:text-base">Resultados</p>
+            </div>
+            <div class="w-full h-auto flex flex-col gap-3 pl-0 sm:pl-5">
+                <div class="flex items-center justify-between w-full h-auto gap-1 sm:gap-5 cursor-pointer"
+                    (click)="onSearchResultClick('Madrid')">
+                    <div class="flex items-center gap-2 sm:gap-5 w-full h-auto">
+                        <img src="/assets/svg/pin-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                        <div>
+                            <p
+                                class="text-[12px] sm:text-sm md:text-base text-white break-words whitespace-normal w-full">
+                                Madrid</p>
+                            <p class="text-[12px] sm:text-sm md:text-base text-[rgba(255,255,255,0.5)] break-words whitespace-normal w-full"
+                                style="font-family: var(--ubuntu-regular);">
+                                Comunidad de Madrid, España
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 sm:gap-4 h-full">
+                        <div class="flex flex-col justify-start items-end w-full h-full">
+                            <p class="text-[12px] sm:text-sm md:text-base">22°C</p>
+                            <img src="/assets/svg/cloud-blue-svg.svg" alt=""
+                                class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                        </div>
+                        <img src="/assets/svg/arrow-right-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full h-auto gap-1 sm:gap-5 cursor-pointer"
+                    (click)="onSearchResultClick('San Francisco')">
+                    <div class="flex items-center gap-2 sm:gap-5 w-full h-full">
+                        <img src="/assets/svg/pin-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                        <div>
+                            <p
+                                class="text-[12px] sm:text-sm md:text-base text-white break-words whitespace-normal w-full">
+                                San Francisco</p>
+                            <p class="text-[12px] sm:text-sm md:text-base text-[rgba(255,255,255,0.5)] break-words whitespace-normal w-full"
+                                style="font-family: var(--ubuntu-regular);">
+                                San Francisco, California, Estados Unidos
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 sm:gap-4 h-full">
+                        <div class="flex flex-col justify-center items-end w-full h-full">
+                            <p class="text-[12px] sm:text-sm md:text-base">22°C</p>
+                            <img src="/assets/svg/cloud-blue-svg.svg" alt=""
+                                class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                        </div>
+                        <img src="/assets/svg/arrow-right-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full h-auto gap-1 sm:gap-5 cursor-pointer"
+                    (click)="onSearchResultClick('Obregón')">
+                    <div class="flex items-center gap-2 sm:gap-5 w-full h-full">
+                        <img src="/assets/svg/pin-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                        <div>
+                            <p
+                                class="text-[12px] sm:text-sm md:text-base text-white break-words whitespace-normal w-full">
+                                Obregón</p>
+                            <p class="text-[12px] sm:text-sm md:text-base text-[rgba(255,255,255,0.5)] break-words whitespace-normal w-full"
+                                style="font-family: var(--ubuntu-regular);">
+                                Obregón, Sonora, México
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 sm:gap-4 h-full">
+                        <div class="flex flex-col justify-center items-end w-full h-full">
+                            <p class="text-[12px] sm:text-sm md:text-base">22°C</p>
+                            <img src="/assets/svg/cloud-blue-svg.svg" alt=""
+                                class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                        </div>
+                        <img src="/assets/svg/arrow-right-svg.svg" alt="" class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
